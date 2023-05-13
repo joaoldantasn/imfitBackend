@@ -6,8 +6,6 @@ public class ExercicioMinDTO {
 	private Long id;
 	private String name;
 	private String muscleGroup;
-	private String imgUrl;
-	private String shortDescription;
 	
 	public ExercicioMinDTO() {
 		
@@ -17,8 +15,6 @@ public class ExercicioMinDTO {
 		id = entity.getId();
 		name = entity.getName();
 		muscleGroup = entity.getMuscleGroup();
-		imgUrl = entity.getImgUrl();
-		shortDescription = entity.getShortDescription();
 	}
 
 	public Long getId() {
@@ -33,12 +29,5 @@ public class ExercicioMinDTO {
 		return muscleGroup;
 	}
 
-	public String getImgUrl() {
-		return imgUrl;
-	}
 
-	public String getShortDescription() {
-		return shortDescription;
-	}	
-	
 }
