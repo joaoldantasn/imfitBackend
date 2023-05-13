@@ -1,6 +1,7 @@
 package com.imfit.Imfit.dtos;
 
 import com.imfit.Imfit.entities.Exercicio;
+import com.imfit.Imfit.projections.ExercicioMinProjection;
 
 public class ExercicioMinDTO {
 	private Long id;
@@ -15,6 +16,12 @@ public class ExercicioMinDTO {
 		id = entity.getId();
 		name = entity.getName();
 		muscleGroup = entity.getMuscleGroup();
+	}
+	
+	public ExercicioMinDTO(ExercicioMinProjection projection) {
+		id = projection.getId();
+		name = projection.getName();
+		muscleGroup = projection.getMuscleGroup();
 	}
 
 	public Long getId() {

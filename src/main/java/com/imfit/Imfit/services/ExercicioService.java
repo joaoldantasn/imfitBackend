@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.imfit.Imfit.dtos.ExercicioDTO;
 import com.imfit.Imfit.dtos.ExercicioMinDTO;
 import com.imfit.Imfit.entities.Exercicio;
+import com.imfit.Imfit.projections.ExercicioMinProjection;
 import com.imfit.Imfit.repositories.ExercicioRepository;
 
 @Service
@@ -29,6 +30,12 @@ public class ExercicioService {
 		List<Exercicio> result = exercicioRepository.findAll();
 		List<ExercicioMinDTO> dto = result.stream().map(x -> new ExercicioMinDTO(x)).toList();
 		return dto;
+	}
+	
+	@Transactional(readOnly = true)
+	public List<ExercicioMinDTO> findByTreino(Long treinoId){
+		List<ExercicioMinProjection> result = exercicioRepository.searchByList(treinoId);
+		return result.stream().map(x -> new ExercicioMinDTO(x)).toList();
 	}
 	
 }
